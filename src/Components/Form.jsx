@@ -28,7 +28,7 @@ const Form = () => {
     const isEmailValid = validEmail(state.email);
 
     if (isEmailValid && isNameValid) {
-      setState((prev) => ({ ...prev, isSubmitted: true }));
+      setState((prev) => ({ ...prev, isSubmitted: true, error: false }));
     } else setState((prev) => ({ ...prev, error: true }));
   };
 
