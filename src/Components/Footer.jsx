@@ -2,7 +2,10 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <footer>
+        <p>Powered by</p>
+        <img src="/DH.png" alt='DH-logo' />
+    </footer>
   )
 }
 
