@@ -11,7 +11,7 @@ const validEmail = (email) => {
 };
 
 const Form = () => {
-  const [state, setState] = useState({ fullName: "", email: "", error: false });
+  const [state, setState] = useState({ fullName: "", email: "", error: false, isSubmitted: false });
 
   const handleChange = (e) => {
     setState((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -23,8 +23,7 @@ const Form = () => {
     const isEmailValid = validName(state.email);
 
     if (isEmailValid && isNameValid) {
-      alert(`Thanks ${state.fullName} we will contact you as soon as possible`);
-      setState({ fullName: "", email: "" });
+      setState(prev => ({...prev, isSubmitted: true }));
     } else setState((prev) => ({ ...prev, error: true }));
   };
 
@@ -46,6 +45,7 @@ const Form = () => {
         <button type="submit">Send</button>
       </form>
       {state.error ? <p>Por favor verifique su información nuevamente</p> : null}
+      {state.isSubmitted ? <h3>Gracias {state.fullName}, te contactaremos cuando antes vía mail</h3> : null}
     </div>
   );
 };

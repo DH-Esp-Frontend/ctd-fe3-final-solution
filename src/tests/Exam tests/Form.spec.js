@@ -36,5 +36,20 @@ describe("Form", ()=>{
             })
         })
     })
+    describe("On success", ()=>{
+        it("Should render the appropriate confirmation message", async()=>{
+            render(<Contact/>)
+            const inputs = screen.getAllByRole("textbox")
+            const submitButton = screen.getByRole('button', {type: "submit"})
+            userEvent.type(inputs[0], "User Test")
+            userEvent.type(inputs[1], "test@digital.com")
+            userEvent.click(submitButton)
+
+            const errorMessage = await screen.queryByText(/Por favor verifique su información nuevamente/i)
+            const successMessage = await screen.findByText(/Gracias User Test, te contactaremos cuando antes vía mail/i)
+            expect(errorMessage).not.toBeInTheDocument() 
+            expect(successMessage).toBeInTheDocument() 
+        })
+    })
 
 })
