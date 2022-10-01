@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+h1{
+  text-align: center;
+}
+
 nav{
   display: flex;
   width: 80vw;
@@ -58,3 +62,27 @@ form{
   margin: 0 auto;
 }
 
+.card{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  padding: 0.5rem;
+  border: 0.5px solid rgb(136, 136, 136);
+  cursor: pointer;
+}
+
+.card:hover{
+  border: 0.5px solid rgb(206, 217, 142);
+}
+
+.card-grid{
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+  width: 90vw;
+  height: auto;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}

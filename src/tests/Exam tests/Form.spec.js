@@ -45,7 +45,7 @@ describe("Form", ()=>{
             userEvent.type(inputs[1], "test@digital.com")
             userEvent.click(submitButton)
 
-            const errorMessage = await screen.queryByText(/Por favor verifique su información nuevamente/i)
+            const errorMessage =  screen.queryByText(/Por favor verifique su información nuevamente/i)
             const successMessage = await screen.findByText(/Gracias User Test, te contactaremos cuando antes vía mail/i)
             expect(errorMessage).not.toBeInTheDocument() 
             expect(successMessage).toBeInTheDocument() 
