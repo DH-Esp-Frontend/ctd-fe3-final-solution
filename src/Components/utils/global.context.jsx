@@ -1,4 +1,5 @@
 import { createContext, useEffect, useMemo, useState } from "react";
+import { BrowserRouter } from "react-router-dom";
 import { getDentist } from "./dentist.service";
 
 const initialState = {theme: "light", data: []}
@@ -16,9 +17,11 @@ export const ContextProvider = ({children})=>{
         getDentist().then(data => setState(prev => ({...prev, data})))
     }, [])
     return(
-        <ContextGlobal.Provider value={providerState}>
-            {children}
-        </ContextGlobal.Provider>
+        <BrowserRouter>
+            <ContextGlobal.Provider value={providerState}>
+                {children}
+            </ContextGlobal.Provider>
+        </BrowserRouter>
     )
 
 }
