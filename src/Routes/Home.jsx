@@ -9,7 +9,7 @@ const Home = () => {
       <h1>Home</h1>
       <div className='card-grid'>
         {state.data.length ?
-        state.data.map(dentist => <Card {...dentist} key={dentist.name} />)
+        state.data.map(dentist => <Card {...dentist} key={dentist.id} />)
         : null}
         </div>
     </>

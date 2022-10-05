@@ -3,12 +3,6 @@ import userEvent from "@testing-library/user-event"
 import Contact from "../../../Routes/Contact"
 
 describe("Form", ()=>{
-    it("Should render two inputs", ()=>{
-        render(<Contact/>)
-        const inputs = screen.getAllByRole("textbox")
-        expect(inputs.length).toEqual(2)
-    })
-
     describe('On error', () => {
         describe("Should show an error message",()=>{
             it("If the first input length is less than 5", async ()=>{
