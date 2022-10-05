@@ -1,19 +1,31 @@
-import { createContext, useEffect, useMemo, useState } from "react";
+import { createContext, useEffect, useMemo, useReducer, useState } from "react";
+import { actions, initialState, reducer } from "./reducer.service";
 
-const initialState = { theme: "light", data: [] };
+
 
 export const ContextGlobal = createContext(undefined);
 
 export const ContextProvider = ({ children }) => {
-  const [state, setState] = useState(initialState);
+  const [state, dispatch] = useReducer(reducer, initialState)
 
-  const providerState = useMemo(() => ({ state, setState }), [state, setState]);
+  const providerState = useMemo(()=> ({
+    data: state.data,
+    setData: (array) =>{
+      dispatch({type: actions.SET_DATA, payload: array})
+    },
+    setDarkTheme: ()=>{
+      dispatch({type: actions.SET_THEME_DARK})
+    },
+    setLightTheme: ()=>{
+      dispatch({type: actions.SET_THEME_LIGHT})
+    }
+  }), [state, dispatch])
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
-      .then((data) => setState((prev) => ({ ...prev, data })));
-  }, [state]);
+      .then((data) => providerState.setData(data) );
+  }, [providerState]);
 
   return (
     <ContextGlobal.Provider value={providerState}>
