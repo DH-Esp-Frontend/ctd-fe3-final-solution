@@ -1,4 +1,4 @@
-import { createContext, useEffect, useMemo, useReducer, useState } from "react";
+import { createContext, useEffect, useMemo, useReducer } from "react";
 import { actions, initialState, reducer } from "./reducer.service";
 
 
@@ -10,6 +10,7 @@ export const ContextProvider = ({ children }) => {
 
   const providerState = useMemo(()=> ({
     data: state.data,
+    theme: state.theme,
     setData: (array) =>{
       dispatch({type: actions.SET_DATA, payload: array})
     },
