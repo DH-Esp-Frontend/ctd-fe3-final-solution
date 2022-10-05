@@ -1,5 +1,6 @@
-import Card from "../../Components/Card"
-import { render, screen } from "../test-utils"
+import { render, screen } from "../../test-utils"
+import userEvent from "@testing-library/user-event"
+import Card from "../../../Components/Card"
 
 const cardInfo = {
     name: "John Mayer",
@@ -9,7 +10,7 @@ const cardInfo = {
 
 describe("Card", () => {
     it("Should render the proper information", () => {
-        render(<Card props={cardInfo} />)
+        render(<Card {...cardInfo} />)
         const title = screen.getByText("John Mayer")
         const nickname = screen.getByText("johnny")
         const id = screen.getByText("2")
@@ -20,8 +21,18 @@ describe("Card", () => {
 
         })
     it("Should render a link for every Card", ()=>{
-        render(<Card props={cardInfo} />)
+        render(<Card {...cardInfo} />)
         const link = screen.getByRole("link")
         expect(link).toBeInTheDocument()
+    })
+    
+    describe ("Fav button", ()=>{
+        it("Should call setItem in localStorage", ()=>{
+          const setItem = jest.spyOn(Storage.prototype, 'setItem');
+          render(<Card {...cardInfo} />)
+          const button = screen.getByRole("button")
+          userEvent.click(button)
+          expect(setItem).toHaveBeenCalled()
+        })
     })
 })

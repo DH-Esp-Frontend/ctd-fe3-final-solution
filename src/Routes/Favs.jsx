@@ -1,9 +1,20 @@
-import React from 'react'
+import React from "react";
+import Card from "../Components/Card";
+import { getFavFromStorage } from "../Components/utils/localStorage.service";
 
 const Favs = () => {
-  return (
-    <div>Favs</div>
-  )
-}
+  const localFavs =  getFavFromStorage()
 
-export default Favs
+  return (
+    <>
+      <h1>Dentists Favs</h1>
+      <div className="card-grid">
+        {localFavs.length
+          ? localFavs.map((dentistFav) => <Card {...dentistFav} key={dentistFav.id} />)
+          : null}
+      </div>
+    </>
+  );
+};
+
+export default Favs;

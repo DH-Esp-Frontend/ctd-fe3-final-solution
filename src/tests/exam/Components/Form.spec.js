@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import Contact from "../../Routes/Contact"
+import Contact from "../../../Routes/Contact"
 
 describe("Form", ()=>{
     it("Should render two inputs", ()=>{

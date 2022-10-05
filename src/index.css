@@ -11,6 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.favButton{
+  background-color: rgba(136, 136, 136, 0.116);
+  padding: 10px;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+}
 
 h1{
   text-align: center;
@@ -27,6 +34,7 @@ a{
   color: #000;
   text-decoration: none;
   margin: 5px;
+  cursor: pointer;
 }
 a:hover{
   color: rgb(136, 136, 136);
@@ -68,9 +76,8 @@ form{
   flex-direction: column;
   align-items: center;
   width: 200px;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0 0.5rem;
   border: 0.5px solid rgb(136, 136, 136);
-  cursor: pointer;
 }
 
 .card:hover{
