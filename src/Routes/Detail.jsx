@@ -8,7 +8,8 @@ const Detail = () => {
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
     .then((res) => res.json())
-    .then((data) => setDentist((data)))
+    .then((data) => {
+    setDentist((data))})
   }, [id])
 
 

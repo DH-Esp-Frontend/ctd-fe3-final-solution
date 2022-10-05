@@ -1,6 +1,7 @@
 module.exports = {
     moduleDirectories: [
       'node_modules',
-      'tests/exam'
+      'src/tests/',
+      __dirname      
     ]
   }

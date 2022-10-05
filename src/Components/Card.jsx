@@ -14,7 +14,7 @@ const Card = ({ name, username, id }) => {
 
   return (
     <div className="card">
-        <Link to={`/post/${id}`}>
+        <Link to={`/dentist/${id}`}>
             <h3>{name}</h3>
         </Link>
             <p>{username}</p>
