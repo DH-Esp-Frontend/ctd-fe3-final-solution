@@ -1,0 +1,36 @@
+.footerWrapper {
+  margin-top: auto;
+}
+
+.top {
+  text-transform: uppercase;
+  padding: 1rem;
+  background: #f21d1d;
+  border: none;
+  color: white;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.footer {
+  background: white;
+  color: #212529;
+  padding: 2rem 0;
+}
+
+.icons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 1rem;
+  filter: brightness(0);
+}
+
+.dhLogo{
+  max-width: 50%;
+}
+
+.icon {
+  max-width: 2rem;
+  height: auto;
+}
