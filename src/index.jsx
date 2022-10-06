@@ -8,20 +8,23 @@ import Home from './Routes/Home';
 import Contact from './Routes/Contact';
 import Detail from './Routes/Detail';
 import Favs from './Routes/Favs';
+import { ContextProvider } from "./Components/utils/global.context";
 import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route index path="/home" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/dentist/:id" element={<Detail />} />
-          <Route path="/favs" element={<Favs />} />
-        </Route>
-      </Routes>
+      <ContextProvider>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index path="/home" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/dentist/:id" element={<Detail />} />
+            <Route path="/favs" element={<Favs />} />
+          </Route>
+        </Routes>
+      </ContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
