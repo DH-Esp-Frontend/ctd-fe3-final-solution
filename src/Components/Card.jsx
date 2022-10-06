@@ -5,8 +5,7 @@ import styles from "./Card.module.css";
 
 const Card = ({ name, username, id }) => {
   const addFav = () => {
-    setFavInStorage({ name, username, id })
-    alert("Dentist added successfully")
+    setFavInStorage({ name, username, id });
   }
 
   return (
