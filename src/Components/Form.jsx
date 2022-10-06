@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import { useState, useContext } from "react";
+import { ContextGlobal } from './utils/global.context';
+import styles from "./Form.module.css";
 
 const validName = (name) => {
   if (name.length > 5) return true;
@@ -18,6 +20,9 @@ const Form = () => {
     isSubmitted: false,
   });
 
+  const { theme } = useContext(ContextGlobal)
+  const isDarkMode = theme === "dark" || false
+
   const handleChange = (e) => {
     setState((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -33,22 +38,28 @@ const Form = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          placeholder="Full name"
-          value={state.fullName}
-          name="fullName"
-          onChange={handleChange}
-        />
-        <input
-          placeholder="Email"
-          value={state.email}
-          name="email"
-          onChange={handleChange}
-        />
-        <button type="submit">Send</button>
-      </form>
+    <div className={`text-center card container ${styles.card} ${isDarkMode ? styles.cardDark : ''}`}>
+      <h2>Want to know more?</h2>
+      <p>Send us your questions and we will contact you</p>
+      <div className={`card-body ${styles.CardBody}`}>
+        <form onSubmit={handleSubmit}>
+          <input
+            className="form-control"
+            placeholder="Full name"
+            value={state.fullName}
+            name="fullName"
+            onChange={handleChange}
+          />
+          <input
+            className="form-control"
+            placeholder="Email"
+            value={state.email}
+            name="email"
+            onChange={handleChange}
+          />
+          <button className="btn btn-primary" type="submit">Send</button>
+        </form>
+      </div>
       {state.error ? (
         <p>Por favor verifique su información nuevamente</p>
       ) : null}
