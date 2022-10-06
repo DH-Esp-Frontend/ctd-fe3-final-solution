@@ -1,25 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { setFavInStorage } from "./utils/localStorage.service";
-
-
-
+import styles from "./Card.module.css";
 
 const Card = ({ name, username, id }) => {
-
-  const addFav = ()=>{
-      setFavInStorage({ name, username, id })
-      alert("Dentist added successfully")
+  const addFav = () => {
+    setFavInStorage({ name, username, id })
+    alert("Dentist added successfully")
   }
 
   return (
-    <div className="card">
+    <div className={`${styles.card}`}>
+      <img className="card-img-top" src="/images/doctor.jpg" alt="doctor placeholder" />
+      <div className={`card-body ${styles.CardBody}`}>
         <Link to={`/dentist/${id}`}>
-            <h3>{name}</h3>
+          <h5 className={`card-title ${styles.title}`}>{name}</h5>
         </Link>
-            <p>{username}</p>
-            <p>{id}</p>
-        <button onClick={addFav} className="favButton">⭐</button>
+        <p className="card-text">{username}</p>
+        <button onClick={addFav} className="btn btn-primary favButton">⭐</button>
+      </div>
     </div>
   );
 };
