@@ -81,6 +81,8 @@ Solo se admitirán entregas recibidas hasta el cierre de la clase 24, clase de E
 
 ### Formato de Entrega
 
+* Nuevamente podrás utilizar como guía de progreso los tests que ya incluye el proyecto. Estos servirán luego como ayuda para el profesor  la hora de corregir, pero no determinan la nota final de la evaluación.
+
 Se aceptará la entrega mediante la submisión de la URL de su repositorio clonado
 
 El link al Google Form para la submisión será enviado por el profesor a cargo de la comisión.
