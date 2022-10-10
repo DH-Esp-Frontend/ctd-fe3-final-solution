@@ -1,22 +1,15 @@
-import React, { useState } from "react";
-
-const validName = (name) => {
-  if (name.length > 5) return true;
-  return false;
-};
-
-const validEmail = (email) => {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-};
+import { useState, useContext } from "react";
+import { ContextGlobal } from './utils/global.context';
+import styles from "./Form.module.css";
 
 const Form = () => {
   const [state, setState] = useState({
-    fullName: "",
-    email: "",
-    error: false,
-    isSubmitted: false,
+    login: "",
+    password: "",
   });
+
+  const { theme } = useContext(ContextGlobal)
+  const isDarkMode = theme === "dark" || false
 
   const handleChange = (e) => {
     setState((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -24,39 +17,32 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const isNameValid = validName(state.fullName);
-    const isEmailValid = validEmail(state.email);
-
-    if (isEmailValid && isNameValid) {
-      setState((prev) => ({ ...prev, isSubmitted: true, error: false }));
-    } else setState((prev) => ({ ...prev, error: true }));
+    //TODO Login in the API
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          placeholder="Full name"
-          value={state.fullName}
-          name="fullName"
-          onChange={handleChange}
-        />
-        <input
-          placeholder="Email"
-          value={state.email}
-          name="email"
-          onChange={handleChange}
-        />
-        <button type="submit">Send</button>
-      </form>
-      {state.error ? (
-        <p>Por favor verifique su información nuevamente</p>
-      ) : null}
-      {state.isSubmitted ? (
-        <h3>
-          Gracias {state.fullName}, te contactaremos cuando antes vía mail
-        </h3>
-      ) : null}
+    <div className={`text-center card container ${styles.card} ${isDarkMode ? styles.cardDark : ''}`}>
+      <div className={`card-body ${styles.CardBody}`}>
+        <form onSubmit={handleSubmit}>
+          <input
+            className={`form-control ${styles.inputSpacing}`}
+            placeholder="Login"
+            value={state.login}
+            name="login"
+            onChange={handleChange}
+            required
+          />
+          <input
+            className={`form-control ${styles.inputSpacing}`}
+            placeholder="Password"
+            value={state.password}
+            name="email"
+            onChange={handleChange}
+            required
+          />
+          <button className="btn btn-primary" type="submit">Send</button>
+        </form>
+      </div>
     </div>
   );
 };

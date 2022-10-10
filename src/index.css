@@ -11,16 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.favButton{
-  background-color: rgba(136, 136, 136, 0.116);
-  padding: 10px;
-  border: none;
-  width: 100%;
-  cursor: pointer;
+
+main{
+  min-height: calc(100vh - 292px);
 }
 
 h1{
   text-align: center;
+  padding: 2rem 0;
 }
 
 .navbar-nav{
@@ -47,8 +45,11 @@ form{
   flex-direction: column;
   justify-content: space-around;
   width: 300px;
-  height: 100px;
   margin: 0 auto;
+}
+
+.btn-light{
+  background-color: rgb(214, 214, 214);
 }
 
 .card-grid{

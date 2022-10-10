@@ -13,8 +13,6 @@
 }
 
 .footer {
-  background: white;
-  color: #212529;
   padding: 2rem 0;
 }
 
@@ -24,6 +22,10 @@
   align-items: flex-start;
   gap: 1rem;
   filter: brightness(0);
+}
+
+.iconsDark{
+  filter: brightness(0) invert(1);
 }
 
 .dhLogo{

@@ -20,7 +20,9 @@ function App() {
   return (
     <div className={`app ${isDarkMode ? "dark" : "light"}`}>
       <Navbar />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );

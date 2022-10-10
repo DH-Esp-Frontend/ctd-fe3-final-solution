@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { ContextGlobal } from './utils/global.context';
 import styles from "./Navbar.module.css";
@@ -27,10 +27,10 @@ const Navbar = () => {
                 <Link className='nav-link' to="/home">Home</Link>
               </li>
               <li className={`nav-item ${styles.navBarLink}`}>
-                <Link className='nav-link' to="/contact">Contact</Link>
+                <Link className='nav-link' to="/favs">Favs</Link>
               </li>
               <li className={`nav-item ${styles.navBarLink}`}>
-                <Link className='nav-link' to="/favs">Favs</Link>
+                <Link className='nav-link' to="/login">Login</Link>
               </li>
               <li className={`nav-item`}>
                 <button className={`btn btn-${isDarkMode ? 'light' : 'dark'} ${styles.btnStyle}`} onClick={changeTheme} >{isDarkMode ? "☀" : "🌙"} </button>
