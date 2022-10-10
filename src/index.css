@@ -18,6 +18,7 @@ main{
 
 h1{
   text-align: center;
+  padding: 2rem 0;
 }
 
 .navbar-nav{
@@ -44,8 +45,11 @@ form{
   flex-direction: column;
   justify-content: space-around;
   width: 300px;
-  height: 100px;
   margin: 0 auto;
+}
+
+.btn-light{
+  background-color: rgb(214, 214, 214);
 }
 
 .card-grid{
