@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import App from './App';
 import Home from './Routes/Home';
-import Contact from './Routes/Contact';
+import Login from './Routes/Login';
 import Detail from './Routes/Detail';
 import Favs from './Routes/Favs';
 import { ContextProvider } from "./Components/utils/global.context";
@@ -19,7 +19,7 @@ root.render(
         <Routes>
           <Route path="/" element={<App />}>
             <Route index path="/home" element={<Home />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/dentist/:id" element={<Detail />} />
             <Route path="/favs" element={<Favs />} />
           </Route>
