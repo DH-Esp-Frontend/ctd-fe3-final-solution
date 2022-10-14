@@ -40,10 +40,10 @@ const ScheduleForm = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization:
-            "Basic eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBcGkgREggRWNvbW1lcmNlIiwic3ViIjoiZGVudGlzdGFBZG1pbiIsImlhdCI6MTY2NTY5MDA3NywiZXhwIjoxNjY1NjkzNjc3fQ.UUw1VDf4mPJk46ETFKXXWSKmXAcjyh1vAdf-CbgsSMw",
+          authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBcGkgREggRWNvbW1lcmNlIiwic3ViIjoiZGVudGlzdGFBZG1pbiIsImlhdCI6MTY2NTY5MDA3NywiZXhwIjoxNjY1NjkzNjc3fQ.UUw1VDf4mPJk46ETFKXXWSKmXAcjyh1vAdf-CbgsSMw",
         },
-        body: {
+        body: JSON.stringify({
           dentista: {
             matricula: data.dentist,
           },
@@ -51,7 +51,7 @@ const ScheduleForm = () => {
             matricula: data.patient,
           },
           dataHoraAgendamento: data.appointmentDate,
-        },
+        }),
       });
     } catch (error) {
       console.log(error.message);
