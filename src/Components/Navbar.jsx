@@ -60,7 +60,10 @@ const Navbar = () => {
               </li>
               <li className={`nav-item ${styles.navBarLink}`}>
                 {login ? (
-                  <button onClick={() => logout()} className="nav-link">
+                  <button
+                    onClick={() => logout()}
+                    className={`btn btn-${isDarkMode ? "dark" : "light"}`}
+                  >
                     Logout
                   </button>
                 ) : (
