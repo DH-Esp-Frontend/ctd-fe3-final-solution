@@ -5,7 +5,7 @@ import styles from './ScheduleFormModal.module.css';
 
 const ScheduleFormModal = () => {
   const { theme } = useContext(ContextGlobal)
-  const isDarkMode = theme === "dark" || false
+  const isDarkMode = theme === "dark" || false;
 
   return (
     <div className={`modal fade`} id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
