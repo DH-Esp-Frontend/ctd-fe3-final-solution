@@ -1,8 +1,10 @@
-export const initialState = { theme: "light"};
+export const initialState = { theme: "light", login: false };
 
 export const actions = {
     SET_THEME_LIGHT: "SET_HEME_LIGHT",
     SET_THEME_DARK: "SET_HEME_DARK",
+    SET_LOGIN: "SET_LOGIN",
+    SET_LOGOUT: "SET_LOGOUT"
 }
 
 export const reducer = (state, action) =>{
@@ -11,6 +13,10 @@ export const reducer = (state, action) =>{
             return ({...state, theme: "dark"})
         case actions.SET_THEME_LIGHT:
             return  ({...state, theme: "light"})
+        case actions.SET_LOGIN:
+            return  ({...state, login: true})
+        case actions.SET_LOGOUT:
+            return  ({...state, login: false})
         default: {
             return state}
     }
