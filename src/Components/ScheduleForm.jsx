@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { ContextGlobal } from "./utils/global.context";
+import { getTokenFromStorage } from "./utils/localStorage.service";
 import styles from "./ScheduleForm.module.css";
 
 const ScheduleForm = () => {
@@ -33,16 +34,14 @@ const ScheduleForm = () => {
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     console.log(data);
-
+    const token = getTokenFromStorage();
     //TODO Do the Scheduling in API
     try {
       fetch(`https://dhodonto.ctdprojetos.com.br/consulta`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authentication:
-            "Bearer " +
-            "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBcGkgREggRWNvbW1lcmNlIiwic3ViIjoiZGVudGlzdGFBZG1pbiIsImlhdCI6MTY2NTY5MDA3NywiZXhwIjoxNjY1NjkzNjc3fQ.UUw1VDf4mPJk46ETFKXXWSKmXAcjyh1vAdf-CbgsSMw",
+          Authentication: "Bearer " + token,
         },
         body: JSON.stringify({
           dentista: {
