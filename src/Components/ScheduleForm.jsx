@@ -40,8 +40,10 @@ const ScheduleForm = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBcGkgREggRWNvbW1lcmNlIiwic3ViIjoiZGVudGlzdGFBZG1pbiIsImlhdCI6MTY2NTY5MDA3NywiZXhwIjoxNjY1NjkzNjc3fQ.UUw1VDf4mPJk46ETFKXXWSKmXAcjyh1vAdf-CbgsSMw",
+          "Access-Control-Allow-Origin": "https://dhodonto.ctdprojetos.com.br",
+          Authentication:
+            "Bearer " +
+            "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBcGkgREggRWNvbW1lcmNlIiwic3ViIjoiZGVudGlzdGFBZG1pbiIsImlhdCI6MTY2NTY5MDA3NywiZXhwIjoxNjY1NjkzNjc3fQ.UUw1VDf4mPJk46ETFKXXWSKmXAcjyh1vAdf-CbgsSMw",
         },
         body: JSON.stringify({
           dentista: {
