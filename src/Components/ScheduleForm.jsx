@@ -33,7 +33,6 @@ const ScheduleForm = () => {
 
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    console.log(data);
     const token = getTokenFromStorage();
     //TODO Do the Scheduling in API
     try {
@@ -41,7 +40,7 @@ const ScheduleForm = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authentication: "Bearer " + token,
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           dentista: {
@@ -52,6 +51,14 @@ const ScheduleForm = () => {
           },
           dataHoraAgendamento: data.appointmentDate,
         }),
+      }).then((res) => {
+        if(res.ok) {
+          alert("Consulta agendada com sucesso");
+          window.location.href = '/';
+        }
+        else{
+          alert("Ocorreu um erro");
+        }
       });
     } catch (error) {
       console.log(error.message);
