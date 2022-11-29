@@ -6,21 +6,23 @@ export const getFavFromStorage = () => {
 export const setFavInStorage = (dentist) => {
     const storageFavs = getFavFromStorage();
     const isFavOnList = storageFavs.filter(fav => {
-        return fav.id === dentist.id
+        return fav.matricula === dentist.id
     });
     if (isFavOnList.length === 0) {
         storageFavs.push(dentist)
         localStorage.setItem("favs", JSON.stringify(storageFavs));
-        alert("Dentist added successfully")
+        alert("Dentist added successfully");
+        return true;
     }
     else {
-        alert("Dentist already on the list")
+        alert("Dentist already on the list");
+        return false;
     }
 }
 
 export const removeFavInStorage = (id) => {
     let storageFavs = getFavFromStorage();
-    const index = storageFavs.findIndex(fav => fav.id === id);
+    const index = storageFavs.findIndex(fav => fav.matricula === id);
     if (index !== -1) {
         storageFavs.splice(index, 1);
         localStorage.setItem("favs", JSON.stringify(storageFavs));
@@ -34,7 +36,21 @@ export const removeFavInStorage = (id) => {
 export const isFavorited = (id) => {
     const localData = getFavFromStorage();
     const isFavOnList = localData.filter(fav => {
-        return fav.id === id
+        return fav.matricula === id
     });
     return isFavOnList.length === 1;
 };
+
+
+export const getTokenFromStorage = () => {
+    const localData = localStorage.getItem("token");
+    return localData ? localData : null;
+}
+
+export const setTokenInStorage = (token) => {
+    localStorage.setItem("token", token);
+}
+
+export const removeTokenFromStorage = () => {
+    localStorage.removeItem("token");
+}

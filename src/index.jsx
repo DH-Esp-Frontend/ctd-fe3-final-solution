@@ -1,17 +1,17 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import ReactDOM from 'react-dom/client';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js';
-import App from './App';
-import Home from './Routes/Home';
-import Login from './Routes/Login';
-import Detail from './Routes/Detail';
-import Favs from './Routes/Favs';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ReactDOM from "react-dom/client";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
+import App from "./App";
+import Home from "./Routes/Home";
+import Login from "./Routes/Login";
+import Detail from "./Routes/Detail";
+import Favs from "./Routes/Favs";
 import { ContextProvider } from "./Components/utils/global.context";
-import './index.css';
+import "./index.css";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -28,5 +28,3 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>
 );
-
-
