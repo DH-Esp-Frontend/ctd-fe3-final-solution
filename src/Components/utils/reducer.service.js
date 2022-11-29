@@ -1,8 +1,8 @@
 export const initialState = { theme: "light", login: !!localStorage.getItem("token") };
 
 export const actions = {
-    SET_THEME_LIGHT: "SET_HEME_LIGHT",
-    SET_THEME_DARK: "SET_HEME_DARK",
+    SET_THEME_LIGHT: "SET_THEME_LIGHT",
+    SET_THEME_DARK: "SET_THEME_DARK",
     SET_LOGIN: "SET_LOGIN",
     SET_LOGOUT: "SET_LOGOUT"
 }
